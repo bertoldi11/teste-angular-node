@@ -2,4 +2,4 @@
 --
 
 - Os arquivos do Node ficam dentro de Source
-- Os arquivos do Angular na ficam dentro de Libs
+- Os arquivos do Angular ficam dentro de Libs
