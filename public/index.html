@@ -3,34 +3,16 @@
 <head>
     <meta charset="utf-8">
     <title>Google Phone Gallery</title>
+
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/app.css">
+
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
 </head>
-<body ng-controller="PhoneListCtrl">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <label>Search:</label> <input ng-model="query">
-                <label>Sort By:</label> <span class="text-danger">{{orderProp}}</span>
-                <select ng-model="orderProp">
-                    <option value="name">Alphabetical a-z</option>
-                    <option value="-name">Alphabetical z-a</option>
-                    <option value="age">Newest</option>
-                    <option value="-age">Oldest</option>
-                </select>
-            </div>
-            <div class="col-md-10">
-                <ul class="phones">
-                    <li ng-repeat="phone in phones | filter: query | orderBy: orderProp" class="thumbnail">
-                        <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-                        <a href="#/phones/{{phone.id}}"> {{phone.name}}</a>
-                        <p>{{phone.snippet}}</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<body>
+    <div ng-view></div>
 </body>
