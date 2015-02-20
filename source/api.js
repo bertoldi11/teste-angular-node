@@ -1,10 +1,16 @@
-/**
- * Created by Vinícius on 01/02/2015.
- */
-var http = require('http');
+var express = require('express');
+var app = express();
+var objRetorno = [
+    {text:'learn angular', done:true},
+    {text:'build an angular app', done:false}
+];
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World\nRodando Node.js embaixo de um NGINX.\n\nMarreteiro 4ever <3');
-}).listen(3000, "127.0.0.1");
+app.get('/', function(req, res) {
+    console.log('Entrou no GET / ');
+    res.charset = 'utf-8';
+    res.type('application/json');
+    res.json(objRetorno);
+});
+
+app.listen(process.env.PORT || 3000);
 console.log('Server running at http://127.0.0.1:3000');
